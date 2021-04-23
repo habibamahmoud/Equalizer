@@ -731,7 +731,7 @@
            <string>hide/show</string>
           </property>
          </widget>
-         <widget class="QSlider" name="sp2">
+         <widget class="QSlider" name="max_spectro_slider">
           <property name="geometry">
            <rect>
             <x>1200</x>
@@ -765,7 +765,7 @@
            <enum>QSlider::TicksAbove</enum>
           </property>
          </widget>
-         <widget class="QSlider" name="sp1">
+         <widget class="QSlider" name="min_spectro_slider">
           <property name="geometry">
            <rect>
             <x>1250</x>
