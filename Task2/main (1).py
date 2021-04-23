@@ -162,6 +162,7 @@ class Functions (Ui_MainWindow):
         max_slider= self.max_spectro_slider.value()
         print(min_slider)
         print(max_slider)
+        global fs
         fs=self.sampling_rate
         palette = ['viridis', 'plasma', 'inferno', 'magma', 'cividis']
 
@@ -171,12 +172,12 @@ class Functions (Ui_MainWindow):
         f = plot.figure()
         f.set_figwidth(8)
         f.set_figheight(6)
-        plot.specgram(self.Ampltuides, Fs=50, cmap=cmap) 
+        plot.specgram(self.Ampltuides, Fs=fs, cmap=cmap) 
         cb1=plot.colorbar()
         plot.savefig('spectroo1.png', bbox_inches='tight')
         self.spectro1.setPixmap(QtGui.QPixmap('spectroo1.png'))
         self.spectro2.setPixmap(QtGui.QPixmap('spectroo1.png'))
-        plot.specgram(y, Fs=50, cmap=cmap, scale='dB', vmin=min_slider, vmax=max_slider)
+        plot.specgram(y, Fs=fs, cmap=cmap, scale='dB', vmin=min_slider, vmax=max_slider)
         cb1.remove()
         plot.colorbar()
         plot.savefig('spectroo2.png', bbox_inches='tight')
@@ -216,7 +217,7 @@ class Functions (Ui_MainWindow):
         plot.title("Original Signal")
         plot.xlim(0, 0.4)
         plot.subplot(222)
-        plot.specgram(self.Ampltuides, Fs=50, cmap=cmap)  # plot spectrogram of the signal
+        plot.specgram(self.Ampltuides, Fs=fs, cmap=cmap)  # plot spectrogram of the signal
         plot.title("Original Spectrogram")
         plot.colorbar()
         plot.subplot(223)
@@ -224,7 +225,7 @@ class Functions (Ui_MainWindow):
         plot.title("Modefied signal")
         plot.xlim(0, 0.4)
         plot.subplot(224)
-        plot.specgram(y, Fs=50, cmap=cmap, scale='dB', vmin=min_slider, vmax=max_slider)
+        plot.specgram(y, Fs=fs, cmap=cmap, scale='dB', vmin=min_slider, vmax=max_slider)
         plot.title("Modefied spectrogram")
         plot.colorbar()
         plot.tight_layout()
