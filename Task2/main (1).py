@@ -16,7 +16,7 @@ from scipy.io.wavfile import write
 import scipy.io.wavfile as wavf
 import numpy as np
 import sys
-#import winsound
+import winsound
 
 
 class Functions (Ui_MainWindow):
@@ -88,13 +88,16 @@ class Functions (Ui_MainWindow):
         n = np.min(self.Ampltuides)
         m = np.max(self.Ampltuides)
         self.modifiedAmplitudes = np.array(self.samples)
-        freq = np.arange(1.0, (self.sampling_rate/2)+1)
-        dec = 20*(np.log10(freq)*(-1))
+        freq=np.arange(1.0,(self.sampling_rate/2)+1)
+
+        dec= 20*(np.log10(freq)*(-1))
+
         self.min_spectro_slider.setMinimum(min(dec))
         self.max_spectro_slider.setMinimum(min(dec))
-        self.min_spectro_slider.setMaximum(max(dec))
-        self.max_spectro_slider.setMaximum(max(dec))
-
+        self.min_spectro_slider.setMaximum(max(dec)+1)
+        self.max_spectro_slider.setMaximum(max(dec)+1)
+        print(min(dec))
+        print(max(dec))
         Timeset.append(self.Time)
         Ampltuidesset.append(self.Ampltuides)
         self.addPlot(Timeset[-1], Ampltuidesset[-1], color=(0, 0, 255), name="Original s(t)")  # First plot
@@ -155,19 +158,21 @@ class Functions (Ui_MainWindow):
 
     def default_spectrogram(self):
         global cmap, min_slider, max_slider
-        min_slider = self.min_spectro_slider.value()
-        max_slider = self.max_spectro_slider.value()
+        min_slider= self.min_spectro_slider.value()
+        max_slider= self.max_spectro_slider.value()
+        print(min_slider)
+        print(max_slider)
+        fs=self.sampling_rate
         palette = ['viridis', 'plasma', 'inferno', 'magma', 'cividis']
 
         for i in range(len(palette)):
             if self.color.currentIndex() == i:
                 cmap = palette[i]
-
         f = plot.figure()
         f.set_figwidth(8)
         f.set_figheight(6)
-        plot.specgram(self.Ampltuides, Fs=50, cmap=cmap)
-        cb1 = plot.colorbar()
+        plot.specgram(self.Ampltuides, Fs=50, cmap=cmap) 
+        cb1=plot.colorbar()
         plot.savefig('spectroo1.png', bbox_inches='tight')
         self.spectro1.setPixmap(QtGui.QPixmap('spectroo1.png'))
         self.spectro2.setPixmap(QtGui.QPixmap('spectroo1.png'))
@@ -180,7 +185,6 @@ class Functions (Ui_MainWindow):
         fs = 44100
         out_f = 'out.wav'
         wavf.write(out_f, fs, y)
-
     def changeValue(self, slider_num):
         global y
         y = self.samples
