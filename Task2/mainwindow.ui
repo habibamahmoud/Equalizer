@@ -133,33 +133,7 @@
          <property name="frameShadow">
           <enum>QFrame::Raised</enum>
          </property>
-         <layout class="QGridLayout" name="gridLayout_8">
-          <item row="0" column="8">
-           <spacer name="horizontalSpacer">
-            <property name="orientation">
-             <enum>Qt::Horizontal</enum>
-            </property>
-            <property name="sizeHint" stdset="0">
-             <size>
-              <width>743</width>
-              <height>20</height>
-             </size>
-            </property>
-           </spacer>
-          </item>
-          <item row="0" column="5">
-           <widget class="QPushButton" name="right">
-            <property name="styleSheet">
-             <string notr="true">border-image: url(:right.png)</string>
-            </property>
-            <property name="text">
-             <string/>
-            </property>
-            <property name="shortcut">
-             <string>Right</string>
-            </property>
-           </widget>
-          </item>
+         <layout class="QGridLayout" name="gridLayout_3">
           <item row="0" column="0">
            <widget class="QPushButton" name="pause2">
             <property name="styleSheet">
@@ -173,16 +147,16 @@
             </property>
            </widget>
           </item>
-          <item row="0" column="4">
-           <widget class="QPushButton" name="left">
+          <item row="0" column="1">
+           <widget class="QPushButton" name="play2">
             <property name="styleSheet">
-             <string notr="true">border-image: url(:left.png)</string>
+             <string notr="true">border-image: url(:play1.png)</string>
             </property>
             <property name="text">
              <string/>
             </property>
             <property name="shortcut">
-             <string>Left</string>
+             <string>Ctrl+P</string>
             </property>
            </widget>
           </item>
@@ -199,19 +173,6 @@
             </property>
            </widget>
           </item>
-          <item row="0" column="6">
-           <widget class="QPushButton" name="zoom_in">
-            <property name="styleSheet">
-             <string notr="true">border-image: url(:plus.png)</string>
-            </property>
-            <property name="text">
-             <string/>
-            </property>
-            <property name="shortcut">
-             <string>+</string>
-            </property>
-           </widget>
-          </item>
           <item row="0" column="3">
            <widget class="QPushButton" name="down">
             <property name="styleSheet">
@@ -222,6 +183,45 @@
             </property>
             <property name="shortcut">
              <string>Down</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="4">
+           <widget class="QPushButton" name="left">
+            <property name="styleSheet">
+             <string notr="true">border-image: url(:left.png)</string>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="shortcut">
+             <string>Left</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="5">
+           <widget class="QPushButton" name="right">
+            <property name="styleSheet">
+             <string notr="true">border-image: url(:right.png)</string>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="shortcut">
+             <string>Right</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="6">
+           <widget class="QPushButton" name="zoom_in">
+            <property name="styleSheet">
+             <string notr="true">border-image: url(:plus.png)</string>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="shortcut">
+             <string>+</string>
             </property>
            </widget>
           </item>
@@ -238,18 +238,81 @@
             </property>
            </widget>
           </item>
-          <item row="0" column="1">
-           <widget class="QPushButton" name="play2">
-            <property name="styleSheet">
-             <string notr="true">border-image: url(:play1.png)</string>
+          <item row="0" column="8">
+           <widget class="QPushButton" name="speed_slow">
+            <property name="maximumSize">
+             <size>
+              <width>32</width>
+              <height>23</height>
+             </size>
+            </property>
+            <property name="font">
+             <font>
+              <family>Myanmar Text</family>
+              <pointsize>9</pointsize>
+              <weight>75</weight>
+              <bold>true</bold>
+             </font>
             </property>
             <property name="text">
-             <string/>
-            </property>
-            <property name="shortcut">
-             <string>Ctrl+P</string>
+             <string>X0.5</string>
             </property>
            </widget>
+          </item>
+          <item row="0" column="9">
+           <widget class="QPushButton" name="default_speed">
+            <property name="maximumSize">
+             <size>
+              <width>32</width>
+              <height>23</height>
+             </size>
+            </property>
+            <property name="font">
+             <font>
+              <family>Myanmar Text</family>
+              <pointsize>9</pointsize>
+              <weight>75</weight>
+              <bold>true</bold>
+             </font>
+            </property>
+            <property name="text">
+             <string>X1</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="10">
+           <widget class="QPushButton" name="fast_speed">
+            <property name="maximumSize">
+             <size>
+              <width>32</width>
+              <height>23</height>
+             </size>
+            </property>
+            <property name="font">
+             <font>
+              <family>Myanmar Text</family>
+              <pointsize>9</pointsize>
+              <weight>75</weight>
+              <bold>true</bold>
+             </font>
+            </property>
+            <property name="text">
+             <string>X2</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="11">
+           <spacer name="horizontalSpacer">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>887</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
           </item>
          </layout>
         </widget>
