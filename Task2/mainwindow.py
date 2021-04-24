@@ -391,6 +391,7 @@ class Ui_MainWindow(object):
         self.default_speed.setText(_translate("MainWindow", "X1"))
         self.default_speed.setShortcut(_translate("MainWindow", "Ctrl+A"))
         self.fast_speed.setText(_translate("MainWindow", "X2"))
+        self.speed_slow.setText(_translate("MainWindow", "X0.5"))
         self.fast_speed.setShortcut(_translate("MainWindow", "Ctrl+F"))
         self.color.setItemText(0, _translate("MainWindow", "Viridis"))
         self.color.setItemText(1, _translate("MainWindow", "Plasma"))
