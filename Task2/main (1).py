@@ -32,6 +32,7 @@ class Functions (Ui_MainWindow):
         self.plotsData = []  # [x, y], All data of the curve
         self.plotsObjects = []  # Each object of a plot
         self.modifiedAmplitudes = []
+        self.s=250
         self.actionImport.triggered.connect(self.Importbutton1)
         self.menuPrint_2.triggered.connect(self.save_pdf)
         self.actionNew.triggered.connect(self.newWindow)
@@ -43,8 +44,11 @@ class Functions (Ui_MainWindow):
         self.left.clicked.connect(lambda: self.scroll(x=-0.2, y=0))
         self.play1.clicked.connect(lambda: self.play_sound(1))
         self.play2.clicked.connect(lambda: self.play_sound(2))
+        self.default_speed.clicked.connect(self.PTimer)
+        self.fast_speed.clicked.connect(lambda: self.speed(x=-100))
+        self.speed_slow.clicked.connect(lambda: self.speed(x=100))
         self.pause1.clicked.connect(self.pause_sound)
-        self.pause2.clicked.connect(self.pause_sound)
+        self.pause2.clicked.connect(self.stop_signal)
         self.color.currentTextChanged.connect(self.default_spectrogram)
         self.min_spectro_slider.valueChanged.connect(self.default_spectrogram)
         self.max_spectro_slider.valueChanged.connect(self.default_spectrogram)
@@ -54,6 +58,27 @@ class Functions (Ui_MainWindow):
 
         for i in range(2, 4):
             self.plotWidgets[i].setXRange(0, 1000, padding=0)
+
+    def PTimer(self):
+            for i in range(2):
+                self.timer = QtCore.QTimer()
+                self.timer.setInterval(self.s)    
+                self.timer.timeout.connect(self.PTimer)
+                self.timer.start()
+                xrange , yrange = self.plotWidgets[i].viewRange()
+                ScaleValue = (xrange[1] - xrange[0])/50
+                self.plotWidgets[i].setXRange(xrange[0]+ScaleValue, xrange[1]+ScaleValue, padding=0)
+    
+    def stop_signal(self):
+        self.timer.stop()
+
+
+    def speed(self,x):
+        if -100<=x<=400:
+            self.s += x
+            self.PTimer()
+        else:
+            pass
 
     def newWindow(self):
         self.MainWindow = QtWidgets.QMainWindow()
